@@ -18,45 +18,61 @@ public class ArrowSolution_FinalPuzzle : ArrowSolution {
     {
         orderPressed.Add(arrowDirection);
 
-        //Oreder is left, down, up, up, right, down
-        if (orderPressed != null)
+        // Left, Down, Up, Up, Right, Down
+        for (int i = 0; i < orderPressed.Count; i++)
         {
-            switch (count)
+            switch (i)
             {
                 case 0:
-                    checkSolution(ArrowDirection.LEFT);
+                    if (orderPressed[i] == ArrowDirection.LEFT)
+                    {
+                        Debug.Log("Left");
+                    }
+                    else
+                        orderPressed.Clear();
                     break;
                 case 1:
-                    checkSolution(ArrowDirection.DOWN);
+                    if (orderPressed[i] == ArrowDirection.DOWN)
+                    {
+                        Debug.Log("Down");
+                    }
+                    else
+                        orderPressed.Clear();
                     break;
                 case 2:
-                    checkSolution(ArrowDirection.UP);
+                    if (orderPressed[i] == ArrowDirection.UP)
+                    {
+                        Debug.Log("Up");
+                    }
+                    else
+                        orderPressed.Clear();
                     break;
                 case 3:
-                    checkSolution(ArrowDirection.UP);
+                    if (orderPressed[i] == ArrowDirection.UP)
+                    {
+                        Debug.Log("Up");
+                    }
+                    else
+                        orderPressed.Clear();
                     break;
                 case 4:
-                    checkSolution(ArrowDirection.RIGHT);
+                    if (orderPressed[i] == ArrowDirection.RIGHT)
+                    {
+                        Debug.Log("Right");
+                    }
+                    else
+                        orderPressed.Clear();
                     break;
                 case 5:
-                    checkSolution(ArrowDirection.DOWN);
+                    if (orderPressed[i] == ArrowDirection.DOWN)
+                    {
+                        correct = true;
+                        Debug.Log("Down");
+                    }
+                    else
+                        orderPressed.Clear();
                     break;
             }
         }
-            
-    }
-
-    private void checkSolution(ArrowDirection arrowDirection)
-    {
-        if (count == 5)
-            correct = true;
-        else if (orderPressed.Last<ArrowDirection>() == arrowDirection)
-            this.count++;
-        else
-        {
-            orderPressed.Clear();
-            this.count = 0;
-        }
-            
     }
 }
